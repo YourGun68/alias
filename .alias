@@ -1,0 +1,13 @@
+alias libft='git clone https://github.com/YourGun68/libft.git libft'
+alias libft-='git clone https://github.com/YourGun68/libft.git libft && cd libft'
+
+alias start='intra && github && code && exit'
+alias delog='loginctl lock-session'
+alias aliass='code ~/.alias'
+alias cache='rm -rf ~/.cache'
+
+alias intra='firefox https://profile.intra.42.fr/'
+alias graph='firefox https://projects.intra.42.fr/projects/graph'
+alias gpt='firefox https://chatgpt.com'
+alias github='firefox https://github.com/dashboard'
+alias ytb='firefox https://www.youtube.com'
