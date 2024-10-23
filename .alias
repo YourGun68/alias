@@ -1,5 +1,4 @@
   # Utils #
-# alias start='intra; github; code; exit'
 alias delog='ft_lock'
 alias aliass='code ~/.alias'
 alias cache='rm -rf ~/.cache'
@@ -11,7 +10,7 @@ alias cl='clear'
 alias src='source ~/.alias'
 
   # Firefox #
-alias firefox='/opt/firefox/stable/firefox/firefox'
+# alias firefox='/opt/firefox/stable/firefox/firefox'
 alias intra='firefox https://profile.intra.42.fr/'
 alias graph='firefox https://projects.intra.42.fr/projects/graph'
 alias gpt='firefox https://chatgpt.com'
