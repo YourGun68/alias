@@ -4,8 +4,9 @@ alias delog='ft_lock'
 alias aliass='code ~/.alias'
 alias cache='rm -rf ~/.cache'
 alias gcl='git clone'
-alias push='git add * && git commit -m "update" && git push'
+alias push='git add . && git commit -m "update" && git push'
 alias rmm='rm -rf'
+alias aliaspush='clone- alias && cp ~/.alias .alias && push && cd .. && rmm alias'
 
   # Firefox #
 alias firefox='/opt/firefox/stable/firefox/firefox'
