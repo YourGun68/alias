@@ -1,6 +1,6 @@
   # Utils #
-alias start='intra && github && code && exit'
-alias delog='loginctl lock-session'
+# alias start='intra; github; code; exit'
+alias delog='ft_lock'
 alias aliass='code ~/.alias'
 alias cache='rm -rf ~/.cache'
 alias gcl='git clone'
@@ -8,19 +8,24 @@ alias push='git add * && git commit -m "update" && git push'
 alias rmm='rm -rf'
 
   # Firefox #
+alias firefox='/opt/firefox/stable/firefox/firefox'
 alias intra='firefox https://profile.intra.42.fr/'
 alias graph='firefox https://projects.intra.42.fr/projects/graph'
 alias gpt='firefox https://chatgpt.com'
 alias github='firefox https://github.com/dashboard'
 alias ytb='firefox https://www.youtube.com'
 
+    # Phone #
+alias next='adb shell input keyevent KEYCODE_MEDIA_NEXT'
+alias pause='adb shell input keyevent KEYCODE_MEDIA_PLAY_PAUSE'
+
   # Function #
 clone() {
-    gcl https://github.com/YourGun68/$1.git $1
+    gcl git@github.com:YourGun68/$1.git $1
 }
 
 clone-() {
-    gcl https://github.com/YourGun68/$1.git $1
+    gcl git@github.com:YourGun68/$1.git $1
     cd $1
 }
 
@@ -28,22 +33,8 @@ ff() {
     firefox "https://www.google.com/search?q=$1"
 }
 
-findfile() {
-    local filename="$1"  # Le nom du fichier à rechercher
-    local count=0         # Compteur pour le nombre de fichiers trouvés
-
-    # Recherche de fichiers et affichage d'un message pour chaque fichier trouvé
-    while IFS= read -r file; do
-        echo "Le fichier '$file' a été trouvé."
-        ((count++))  # Incrémente le compteur
-    done < <(find . -type f -name "$filename")
-
-    # Affiche le nombre total de fichiers trouvés
-    if [ "$count" -gt 0 ]; then
-        echo "$count fichier(s) '$filename' trouvé(s) dans le répertoire ou les sous-répertoires."
-    else
-        echo "Aucun fichier '$filename' trouvé dans le répertoire ou les sous-répertoires."
-    fi
+url() {
+    firefox "https://www.$1.com"
 }
 
 findfile() {
