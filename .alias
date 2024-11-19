@@ -1,5 +1,6 @@
-  # Utils #
-alias delog='ft_lock'
+    # Utils #
+# alias start='intra; github; code; exit'
+# alias delog='ft_lock'
 alias aliass='code ~/.alias'
 alias cache='rm -rf ~/.cache'
 alias gcl='git clone'
@@ -8,9 +9,11 @@ alias rmm='rm -rf'
 alias aliaspush='clone- alias && cp ~/.alias .alias && push && cd .. && rmm alias'
 alias cl='clear'
 alias src='source ~/.alias'
+e_() { $1 && $2 && $3; }
+alias e='e_'
 
-  # Firefox #
-# alias firefox='/opt/firefox/stable/firefox/firefox'
+    # Firefox #
+alias firefox='/opt/firefox/stable/firefox/firefox'
 alias intra='firefox https://profile.intra.42.fr/'
 alias graph='firefox https://projects.intra.42.fr/projects/graph'
 alias gpt='firefox https://chatgpt.com'
@@ -21,7 +24,7 @@ alias ytb='firefox https://www.youtube.com'
 alias next='adb shell input keyevent KEYCODE_MEDIA_NEXT'
 alias pause='adb shell input keyevent KEYCODE_MEDIA_PLAY_PAUSE'
 
-  # Function #
+    # Function #
 clone() {
     gcl git@github.com:YourGun68/$1.git $1
 }
