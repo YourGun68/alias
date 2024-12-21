@@ -12,9 +12,9 @@ alias src='source ~/.alias'
 alias esp='setxkbmap -option '\''caps:swapescape'\'''
 alias resp='setxkbmap -option'
 alias rmdocker='docker rm -f $(docker ps -a | awk '\''{print $1}'\'' | grep -v "^CONTAINER") ; docker rmi -f $(docker images | awk '\''{print $3}'\'' | grep -v "^IMAGE")'
-alias corrc='norminette | grep "Error" && findfile "Makefile" "make && make"'
-alias corrcpp='egrep -r "malloc|free|printf|namespace" . && findfile "Makefile" "make && make"'
-alias corrend='cd .. && rmm "jpeter_correction" && rmm ~/.alias && pkill code'
+alias corrc='norminette | grep "Error" && findfile "Makefile" "make > /dev/null 2>&1"'
+alias corrcpp='egrep -r "malloc|free|printf|namespace" . && findfile "Makefile" "make > /dev/null 2>&1"'
+alias corrend='cd .. && rmm "jpeter_correction" && rmm ~/.alias'
 
     # Firefox #
 alias firefox='/usr/lib/firefox/firefox'
@@ -60,14 +60,12 @@ findfile() {
 
     echo "==="
     while IFS= read -r file; do
-        echo "Le fichier '$file' a été trouvé."
+        echo "> '$file'"
         ((count++))
         if [[ -n "$command" ]]; then
             local dir=$(dirname "$file")
-            echo "Changement de répertoire vers : $dir"
             (
                 cd "$dir" || exit
-                echo "Exécution de la commande : $command"
                 eval "$command"
             )
         fi
@@ -87,14 +85,12 @@ finddir() {
 
     echo "==="
     while IFS= read -r file; do
-        echo "Le fichier '$file' a été trouvé."
+        echo "> '$file'"
         ((count++))
         if [[ -n "$command" ]]; then
             local dir=$(dirname "$file")
-            echo "Changement de répertoire vers : $dir"
             (
                 cd "$dir" || exit
-                echo "Exécution de la commande : $command"
                 eval "$command"
             )
         fi
