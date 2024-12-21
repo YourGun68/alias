@@ -12,6 +12,9 @@ alias src='source ~/.alias'
 alias esp='setxkbmap -option '\''caps:swapescape'\'''
 alias resp='setxkbmap -option'
 alias rmdocker='docker rm -f $(docker ps -a | awk '\''{print $1}'\'' | grep -v "^CONTAINER") ; docker rmi -f $(docker images | awk '\''{print $3}'\'' | grep -v "^IMAGE")'
+alias corrc='norminette | grep "Error" && findfile "Makefile" "make && make"'
+alias corrcpp='egrep -r "malloc|free|printf|namespace" . && findfile "Makefile" "make && make"'
+alias corrend='cd .. && rmm "jpeter_correction" && rmm ~/.alias && exit'
 
     # Firefox #
 alias firefox='/usr/lib/firefox/firefox'
@@ -35,6 +38,13 @@ clone-() {
     cd $1
 }
 
+corr() {
+    gcl $1 "jpeter_correction"
+    cd "jpeter_correction"
+    code .
+    exit
+}
+
 ff() {
     firefox "https://www.google.com/search?q=$1"
 }
@@ -48,6 +58,7 @@ findfile() {
     local command="$2"
     local count=0
 
+    echo "==="
     while IFS= read -r file; do
         echo "Le fichier '$file' a été trouvé."
         ((count++))
@@ -66,6 +77,7 @@ findfile() {
     else
         echo "Aucun fichier '$filename' trouvé dans le répertoire ou les sous-répertoires."
     fi
+    echo "==="
 }
 
 finddir() {
@@ -73,6 +85,7 @@ finddir() {
     local command="$2"
     local count=0
 
+    echo "==="
     while IFS= read -r file; do
         echo "Le fichier '$file' a été trouvé."
         ((count++))
@@ -91,4 +104,5 @@ finddir() {
     else
         echo "Aucun fichier '$filename' trouvé dans le répertoire ou les sous-répertoires."
     fi
+    echo "==="
 }
