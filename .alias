@@ -15,7 +15,7 @@ alias rmdocker='docker rm -f $(docker ps -a | awk '\''{print $1}'\'' | grep -v "
 alias corrc='norminette | grep "Error" && findfile "Makefile" "make > /dev/null 2>&1"'
 alias corrcpp='egrep -r "malloc|free|printf|namespace" . && findfile "Makefile" "make > /dev/null 2>&1"'
 alias corrend='cd .. && rmm "jpeter_correction" && rmm ~/.alias'
-alias aliascp='[ -f ~/.aliascopy ] && mv ~/.alias_backup ~/.alias'
+alias aliascp='[ -f ~/.aliascp ] && mv ~/.aliascp ~/.alias && rmm ~/.aliascp'
 
     # Firefox #
 alias firefox='/usr/lib/firefox/firefox'
