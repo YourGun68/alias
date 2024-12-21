@@ -14,7 +14,7 @@ alias resp='setxkbmap -option'
 alias rmdocker='docker rm -f $(docker ps -a | awk '\''{print $1}'\'' | grep -v "^CONTAINER") ; docker rmi -f $(docker images | awk '\''{print $3}'\'' | grep -v "^IMAGE")'
 alias corrc='norminette | grep "Error" && findfile "Makefile" "make && make"'
 alias corrcpp='egrep -r "malloc|free|printf|namespace" . && findfile "Makefile" "make && make"'
-alias corrend='cd .. && rmm "jpeter_correction" && rmm ~/.alias && exit'
+alias corrend='cd .. && rmm "jpeter_correction" && rmm ~/.alias && pkill code'
 
     # Firefox #
 alias firefox='/usr/lib/firefox/firefox'
