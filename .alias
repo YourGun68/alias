@@ -8,7 +8,6 @@ alias push='git add . && git commit -m "update" && git push'
 alias rmm='rm -rf'
 alias aliaspush='clone- alias && cp ~/.alias .alias && push && cd .. && rmm alias'
 alias cl='clear'
-alias ..='cd ..'
 alias src='source ~/.alias'
 alias esp='setxkbmap -option '\''caps:swapescape'\'''
 alias resp='setxkbmap -option'
@@ -18,6 +17,7 @@ alias corrcpp='egrep -r "malloc|free|printf|namespace" . && findfile "Makefile" 
 alias corrend='cd .. && rmm "jpeter_correction" && rmm ~/.alias && aliascp'
 alias aliascp='[ -f ~/.aliascp ] && mv ~/.aliascp ~/.alias && rmm ~/.aliascp'
 alias dis="if pgrep -x 'Discord' > /dev/null; then pkill Discord; else discord &; fi"
+alias hh='df -h $HOME && echo -e "\nSome_heavy_files:" && du -ht 100M $HOME | sort | awk '\''substr ($0, 4, 1) == "M" && !seen[$1]++'\'''
 
     # Firefox #
 alias firefox='/usr/lib/firefox/firefox'
@@ -32,6 +32,13 @@ alias next='adb shell input keyevent KEYCODE_MEDIA_NEXT'
 alias pause='adb shell input keyevent KEYCODE_MEDIA_PLAY_PAUSE'
 
     # Function #
+# push() {
+#     if [ -z "$1" ]; then
+#         git add . && git commit -m "update" && git push
+#     else
+#         git add . && git commit -m "$1" && git push
+# }
+
 clone() {
     gcl git@github.com:YourGun68/$1.git $1
 }
