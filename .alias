@@ -3,22 +3,17 @@
 # alias delog='ft_lock'
 alias aliass='code ~/.alias'
 alias cache='rm -rf ~/.cache'
-alias gcl='git clone'
-# alias push='git add . && git commit -m "update" && git push'
 alias rmm='rm -rf'
 alias aliaspush='clone- alias && cp ~/.alias .alias && git add . && git commit -m "update" && git push && cd .. && rmm alias'
+alias aliascp='[ -f ~/.aliascp ] && mv ~/.aliascp ~/.alias && rmm ~/.aliascp'
 alias cl='clear'
 alias src='source ~/.alias'
-alias esp='setxkbmap -option '\''caps:swapescape'\'''
-alias resp='setxkbmap -option'
 alias rmdocker='docker rm -f $(docker ps -a | awk '\''{print $1}'\'' | grep -v "^CONTAINER") ; docker rmi -f $(docker images | awk '\''{print $3}'\'' | grep -v "^IMAGE")'
-alias corrc='norminette | grep "Error" && findfile "Makefile" "make > /dev/null 2>&1"'
-alias corrcpp='egrep -r "malloc|free|printf|namespace" . && findfile "Makefile" "make > /dev/null 2>&1"'
-alias corrend='cd .. && rmm "jpeter_correction" && rmm ~/.alias && aliascp'
-alias aliascp='[ -f ~/.aliascp ] && mv ~/.aliascp ~/.alias && rmm ~/.aliascp'
-alias dis="if pgrep -x 'Discord' > /dev/null; then pkill Discord; else discord &; fi"
 alias hh='df -h $HOME && echo -e "\nSome_heavy_files:" && du -ht 100M $HOME | sort | awk '\''substr ($0, 4, 1) == "M" && !seen[$1]++'\'''
 alias kd="killall Discord"
+# alias corrc='norminette | grep "Error" && findfile "Makefile" "make > /dev/null 2>&1"'
+# alias corrcpp='egrep -r "malloc|free|printf|namespace" . && findfile "Makefile" "make > /dev/null 2>&1"'
+# alias corrend='cd .. && rmm "jpeter_correction" && rmm ~/.alias && aliascp'
 
     # Firefox #
 alias firefox='/usr/lib/firefox/firefox'
@@ -51,13 +46,6 @@ clone() {
 clone-() {
     gcl git@github.com:YourGun68/$1.git $1
     cd $1
-}
-
-corr() {
-    gcl $1 "jpeter_correction"
-    cd "jpeter_correction"
-    code .
-    exit
 }
 
 ff() {
