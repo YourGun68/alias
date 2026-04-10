@@ -9,11 +9,9 @@ alias aliascp='[ -f ~/.aliascp ] && mv ~/.aliascp ~/.alias && rmm ~/.aliascp'
 alias cl='clear'
 alias src='source ~/.alias'
 alias rmdocker='docker rm -f $(docker ps -a | awk '\''{print $1}'\'' | grep -v "^CONTAINER") ; docker rmi -f $(docker images | awk '\''{print $3}'\'' | grep -v "^IMAGE")'
-alias hh='df -h $HOME && echo -e "\nSome_heavy_files:" && du -ht 100M $HOME | sort | awk '\''substr ($0, 4, 1) == "M" && !seen[$1]++'\'''
+alias hh='df -h $HOME && echo -e "\nSome_heavy_files:" && du -ht 250M $HOME | sort -h | uniq'
 alias kd="killall Discord"
-# alias corrc='norminette | grep "Error" && findfile "Makefile" "make > /dev/null 2>&1"'
-# alias corrcpp='egrep -r "malloc|free|printf|namespace" . && findfile "Makefile" "make > /dev/null 2>&1"'
-# alias corrend='cd .. && rmm "jpeter_correction" && rmm ~/.alias && aliascp'
+alias fmake='make -j -O'
 
     # Firefox #
 alias firefox='/usr/lib/firefox/firefox'
@@ -28,6 +26,8 @@ alias next='adb shell input keyevent KEYCODE_MEDIA_NEXT'
 alias pause='adb shell input keyevent KEYCODE_MEDIA_PLAY_PAUSE'
 
     # Function #
+
+clip() { cat $1 | xclip -sel clip; }
 
 push() {
     if [ -z "$1" ]; then
